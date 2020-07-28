@@ -1,10 +1,18 @@
 # --------------------------------------------------------------------------------
-# File created using 'AnGitIgnored' extensions for Visual Studio Code:
-# https://marketplace.visualstudio.com/items?itemName=AnAppWiLos.angitignored
+# File created using 'AnGitIgnored' extensions for Visual Studio Code: 
+# https://marketplace.visualstudio.com/items?itemName=AnAppWiLos.angitignored 
 #-------------------------------------------------------------------------------
 
-# Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,git
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,git
+# Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,git,composer
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,git,composer
+
+### Composer ###
+composer.phar
+/vendor/
+
+# Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
+# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
+# composer.lock
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -59,7 +67,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,git
+# End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,git,composer
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
