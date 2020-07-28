@@ -16,7 +16,7 @@ require_once("includes.php"); // Load the required logic
         <!-- Create the form for file updloads, including the emails and an optional message -->
         <form id="files-submitter" enctype="multipart/form-data" method="post">
             <div>
-                <label for="files">Fichier(s) : </label><input type="file" name="files" id="files" autofocus multiple required="required"></div>
+                <label for="files">Fichier(s) : </label><input type="file" name="files[]" id="files" autofocus multiple required="required"></div>
             <div>
                 <label for="from">Expéditeur : </label><input type="email" name="from" id="from" required="required" value="from.username@domain.tld">
             </div>
