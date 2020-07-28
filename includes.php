@@ -22,20 +22,15 @@ if ($numberOfFiles <> 0) {
     // For all received files
     foreach ($_FILES["files"]["error"] as $key => $fileError) {
         // When no upload error
-        if ($fileError == UPLOAD_ERR_OK) {
-            // Move the file to inbox
-            $fileToArchive = $inboxPath . $_FILES["files"]["name"][$key];
-            if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $fileToArchive)) {
-                echo "File is valid and successfully uploaded to " . $fileToArchive . ".\r\n";
-                // Add it to the zip archive
-                if ($archive->addFile($fileToArchive, basename($fileToArchive))) {
-                    echo "File successfully added to archive " . $archiveName . "\r\n";
-                    // Delete the archived file
-                } else {
-                    echo "File archiving error!\r\n";
-                }
+        if ($fileError === UPLOAD_ERR_OK) {
+            $fileToArchive = $_FILES["files"]["tmp_name"][$key];
+            echo "File " . $fileToArchive . " is valid and successfully uploaded.\r\n";
+            // Add the received file to the zip archive
+            if ($archive->addFile($fileToArchive, basename($_FILES["files"]["name"][$key]))) {
+                echo "File successfully added to archive " . $archiveName . "\r\n";
+                // Delete the archived file
             } else {
-                echo "Possible file upload attack!\r\n";
+                echo "File archiving error!\r\n";
             }
         } else {
             echo "File upload error!\r\n";
