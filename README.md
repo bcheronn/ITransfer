@@ -3,6 +3,7 @@
 Project : "WeTransfer" Like, versioned individual project
 
 TARGET : Develop in PHP! (Object development and MVC architecture non mandatory)
+WARNING : Totally unsafe code (ITSec wise)
 
 - Minimum 2 pages: welcome page to fill the form, another page to download the zipped file sent in the mail
 - Form management (using input type=file)
