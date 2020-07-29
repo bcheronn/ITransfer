@@ -4,7 +4,7 @@ require_once("includes.php"); // Load the required logic
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -17,12 +17,12 @@ require_once("includes.php"); // Load the required logic
         <!-- Create the form for file updloads, including the emails and an optional message -->
         <form id="files-submitter" enctype="multipart/form-data" method="post">
             <div>
-                <label for="files">Fichier(s) : </label><input type="file" name="files[]" id="files" autofocus multiple required="required"></div>
+                <label for="files">File(s) : </label><input type="file" name="files[]" id="files" autofocus multiple required="required"></div>
             <div>
-                <label for="from">Expéditeur : </label><input type="email" name="from" id="from" required="required" value="from.username@domain.tld">
+                <label for="from">Sender : </label><input type="email" name="from" id="from" required="required" value="from.username@domain.tld">
             </div>
             <div>
-                <label for="to">Destinataire : </label><input type="email" name="to" id="to" required="required" value="to.username@domain.tld">
+                <label for="to">Recipient : </label><input type="email" name="to" id="to" required="required" value="to.username@domain.tld">
             </div>
             <div>
                 <label for="body">Message : </label><input type="text" name="body" id="body">

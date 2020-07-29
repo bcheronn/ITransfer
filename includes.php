@@ -5,7 +5,7 @@ $numberOfFiles = count($_FILES); // Number of files received
 if ($numberOfFiles <> 0) {
     // Debug dump
     echo "Debugging info:\r\n";
-    var_dump('$_POST', $_POST, '$_REQUEST', $_REQUEST, '$_FILES', $_FILES);
+    var_dump('$_POST', $_POST, '$_FILES', $_FILES);
     echo "<hr>\r\n<pre>\r\n";
 
     // Variables declaration and definition
@@ -21,7 +21,7 @@ if ($numberOfFiles <> 0) {
     // Received files management. Move them to inbox
     // For all received files
     foreach ($_FILES["files"]["error"] as $key => $fileError) {
-        // When no upload error
+        // When no upload error 
         if ($fileError === UPLOAD_ERR_OK) {
             $fileToArchive = $_FILES["files"]["tmp_name"][$key];
             echo "File " . $fileToArchive . " is valid and successfully uploaded.\r\n";
@@ -60,12 +60,12 @@ if ($numberOfFiles <> 0) {
     $mailer = new Swift_Mailer($transport);
 
     // Prepare the message
-    $body = "Copy that link in your browser to download the file: http://itransfer/download?" . $archiveName . "\r\n";
+    $body = "Copy that link in your browser to download the file: http://itransfer/download?id=" . $archiveName . "\r\n";
     $body .= $_POST["body"];
 
     // Prepare the HTML message
     $HTMLbody = "<!DOCTYPE html><html lang=fr><head><title>ITransfer file notification</title></head><body>";
-    $HTMLbody .= "Click to download the <a href=\"http://itransfer/download?" . $archiveName. "\">file</a><br><p>";
+    $HTMLbody .= "Click to download the <a href=\"http://itransfer/download?id=" . $archiveName . "\">file</a><br><p>";
     $HTMLbody .= $_POST["body"];
     $HTMLbody .= "</p></body></html>";
 
