@@ -59,12 +59,22 @@ if ($numberOfFiles <> 0) {
     // Create the Mailer using your created Transport
     $mailer = new Swift_Mailer($transport);
 
+    // Prepare the message
+    $body = "Copy that link in your browser to download the file: http://itransfer/download?" . $archiveName . "\r\n";
+    $body .= $_POST["body"];
+
+    // Prepare the HTML message
+    $HTMLbody = "<!DOCTYPE html><html lang=fr><head><title>ITransfer file notification</title></head><body>";
+    $HTMLbody .= "Click to download the <a href=\"http://itransfer/download?" . $archiveName. "\">file</a><br><p>";
+    $HTMLbody .= $_POST["body"];
+    $HTMLbody .= "</p></body></html>";
+
     // Create a message
     $message = (new Swift_Message("ITransfer file notification"))
         ->setFrom([$_POST["from"]])
         ->setTo([$_POST["to"]])
-        ->setBody($_POST["body"])
-        ->addPart("<p>" . $_POST["body"] . "</p>", "text/html");
+        ->setBody($body)
+        ->addPart($HTMLbody, "text/html");
 
     // Send the message
     $result = $mailer->send($message);
