@@ -41,15 +41,15 @@ if ($numberOfFiles <> 0) {
     if ($archive->close() !== TRUE) {
         echo "Error closing $archiveName!\r\n";
     }
-    
+
     // Mail notification
     // Create the Transport
     if ($_SERVER["SERVER_NAME"] === "itransfer") {
         echo "Using Mailtrap for development.\r\n";
         // Local SMTP mailtrap
         $transport = (new Swift_SmtpTransport("smtp.mailtrap.io", 465))
-        ->setUsername("772fbdfbf02416")
-        ->setPassword("a22403c46020d8");
+            ->setUsername("772fbdfbf02416")
+            ->setPassword("a22403c46020d8");
     } else {
         echo "Using production MTA.\r\n";
         // Production SMTP client - Unix/Linux servers only
@@ -63,7 +63,8 @@ if ($numberOfFiles <> 0) {
     $message = (new Swift_Message("ITransfer file notification"))
         ->setFrom([$_POST["from"]])
         ->setTo([$_POST["to"]])
-        ->setBody($_POST["body"]);
+        ->setBody($_POST["body"])
+        ->addPart("<p>" . $_POST["body"] . "</p>", "text/html");
 
     // Send the message
     $result = $mailer->send($message);
