@@ -4,9 +4,9 @@ $numberOfFiles = count($_FILES); // Number of files received
 // Do nothing if there is no file
 if ($numberOfFiles <> 0) {
     // Debug dump
-    echo "Debugging info:\r\n";
+    /*    echo "Debugging info:\r\n";
     var_dump('$_POST', $_POST, '$_FILES', $_FILES);
-    echo "<hr>\r\n<pre>\r\n";
+    echo "<hr>\r\n<pre>\r\n"; */
 
     // Variables declaration and definition
     $inboxPath = "inbox/";
@@ -24,10 +24,10 @@ if ($numberOfFiles <> 0) {
         // When no upload error 
         if ($fileError === UPLOAD_ERR_OK) {
             $fileToArchive = $_FILES["files"]["tmp_name"][$key];
-            echo "File " . $fileToArchive . " is valid and successfully uploaded.\r\n";
+            // echo "File " . $fileToArchive . " is valid and successfully uploaded.\r\n";
             // Add the received file to the zip archive
             if ($archive->addFile($fileToArchive, basename($_FILES["files"]["name"][$key]))) {
-                echo "File successfully added to archive " . $archiveName . "\r\n";
+                // echo "File successfully added to archive " . $archiveName . "\r\n";
                 // Delete the archived file
             } else {
                 echo "File archiving error!\r\n";
@@ -45,13 +45,13 @@ if ($numberOfFiles <> 0) {
     // Mail notification
     // Create the Transport
     if ($_SERVER["SERVER_NAME"] === "itransfer") {
-        echo "Using Mailtrap for development.\r\n";
+        // echo "Using Mailtrap for development.\r\n";
         // Local SMTP mailtrap
         $transport = (new Swift_SmtpTransport("smtp.mailtrap.io", 465))
             ->setUsername("772fbdfbf02416")
             ->setPassword("a22403c46020d8");
     } else {
-        echo "Using production MTA.\r\n";
+        // echo "Using production MTA.\r\n";
         // Production SMTP client - Unix/Linux servers only
         $transport = new Swift_SendmailTransport();
     }

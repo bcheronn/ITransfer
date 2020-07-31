@@ -14,7 +14,7 @@ require_once("includes.php"); // Load the required logic
 </head>
 
 <body>
-    <main>
+    <main class="container">
         <!-- Create the form for file updloads, including the emails and an optional message -->
         <form id="files-submitter" enctype="multipart/form-data" method="post">
             <div>

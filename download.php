@@ -1,8 +1,8 @@
 <?php
 // Debug dump
-echo "Debugging info:\r\n";
+/* echo "Debugging info:\r\n";
 var_dump('$_GET', $_GET);
-echo "<hr>\r\n<pre>\r\n";
+echo "<hr>\r\n<pre>\r\n"; */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@ echo "<hr>\r\n<pre>\r\n";
 </head>
 
 <body>
-    <main>
+    <main class="container">
         Click to download your <a href="http://itransfer/inbox/<?= $_GET["id"] ?>">file</a>
     </main>
 </body>
