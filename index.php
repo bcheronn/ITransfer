@@ -13,24 +13,28 @@ require_once("includes.php"); // Load the required logic
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-dark text-white-50">
     <main class="container">
         <!-- Create the form for file updloads, including the emails and an optional message -->
-        <form id="files-submitter" enctype="multipart/form-data" method="post">
-            <div>
-                <label for="files">File(s) : </label><input type="file" name="files[]" id="files" autofocus multiple required="required"></div>
-            <div>
-                <label for="from">Sender : </label><input type="email" name="from" id="from" required="required" value="from.username@domain.tld">
+        <form id="files-submitter" enctype="multipart/form-data" method="post" class="m-5">
+            <div class="form-group">
+                <label for="files">File(s)</label>
+                <input type="file" name="files[]" id="files" autofocus multiple required="required" class="form-control-file" />
             </div>
-            <div>
-                <label for="to">Recipient : </label><input type="email" name="to" id="to" required="required" value="to.username@domain.tld">
+            <div class="form-group">
+                <label for="from">Sender</label>
+                <input type="email" name="from" id="from" required="required" value="from.username@domain.tld" class="form-control" />
             </div>
-            <div>
-                <label for="body">Message : </label><input type="text" name="body" id="body">
+            <div class="form-group">
+                <label for="to">Recipient</label>
+                <input type="email" name="to" id="to" required="required" value="to.username@domain.tld" class="form-control" />
             </div>
-            <div>
-                <input type="submit" name="send" id="send">
+            <div class="form-group">
+                <label for="body">Message</label>
+                <textarea name="body" id="body" class="form-control">Here are the files you were looking for :)
+                </textarea>
             </div>
+            <input type="submit" name="send" id="send" class="btn btn-secondary" lang="en" />
         </form>
     </main>
 </body>

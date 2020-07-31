@@ -65,7 +65,7 @@ if ($numberOfFiles <> 0) {
 
     // Prepare the HTML message
     $HTMLbody = "<!DOCTYPE html><html lang=fr><head><title>ITransfer file notification</title></head><body>";
-    $HTMLbody .= "Click to download the <a href=\"http://itransfer/download?id=" . $archiveName . "\">file</a><br><p>";
+    $HTMLbody .= "Click to download the <a href=\"http://itransfer/download?id=" . $archiveName . "\">file</a><br /><p>";
     $HTMLbody .= $_POST["body"];
     $HTMLbody .= "</p></body></html>";
 
