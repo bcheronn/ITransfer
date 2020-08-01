@@ -34,7 +34,8 @@ require_once("includes.php"); // Load the required logic
                 <textarea name="body" id="body" class="form-control">Here are the files you were looking for :)
                 </textarea>
             </div>
-            <input type="submit" name="send" id="send" class="btn btn-secondary" lang="en" />
+            <button type="submit" name="send" id="send" class="btn btn-secondary">Send</button>
+            <button type="reset" name="reset" id="reset" class="btn btn-secondary">Reset</button>
         </form>
     </main>
 </body>
