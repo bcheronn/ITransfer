@@ -1,4 +1,5 @@
 <?php
+// Investigate error_reporting and other errors management configuration
 require_once("vendor/autoload.php"); // Load the vendor packages
 require_once("includes.php"); // Load the required logic
 ?>
